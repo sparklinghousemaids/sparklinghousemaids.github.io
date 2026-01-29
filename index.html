@@ -3,11 +3,11 @@
  <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sparkling Housemaids NYC</title>
+  <title>Sparkling Housemaids NY</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
         :root {
-            --primary: #1470af;
+             --primary: #1470af;
             --light-gray: #f3f4f6;
             --dark-gray: #4b5563;
         }
@@ -419,7 +419,7 @@
     </div>
    </div>
    <div class="text-center text-sm text-gray-500 mt-8">
-    <p>© Sparkling Housemaids NYC. All rights reserved.</p>
+    <p>© Sparkling Housemaids NY. All rights reserved.</p>
     <p>This is an estimate. Final pricing may vary based on home condition.</p>
    </div>
   </main>
@@ -499,7 +499,7 @@
 
         // Sample address data for autocomplete
         const sampleAddresses = [
-            "123 Main St, NY, NY 07008",
+            "123 Main St, NY, NY 07008"
         ];
 
         // Global state
@@ -667,7 +667,9 @@
 
         // Frequency selection
         frequencyButtons.forEach(button => {
-            button.addEventListener('click', () => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                
                 // If move-out clean is checked, don't allow changing from deep clean
                 if (state.moveOutClean && button.dataset.value !== 'once-deep') {
                     return;
@@ -1133,5 +1135,5 @@ ${comments}
         updateDeepCleanButtonText();
         updateSummary();
     </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9c5b6cda5006e235',t:'MTc2OTcxNzk3NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9c5b827035c3d94a',t:'MTc2OTcxODg1OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
