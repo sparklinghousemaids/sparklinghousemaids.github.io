@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sparkling Housemaids NYC</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sparkling Housemaids NYC</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
         :root {
             --primary: #1470af;
             --light-gray: #f3f4f6;
@@ -232,392 +232,198 @@
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
     </style>
-</head>
-<body class="min-h-screen">
-    <header class="primary-bg py-6 px-4 shadow-md sticky-header">
-        <div class="container mx-auto flex justify-between items-center">
-            <h1 class="text-2xl md:text-3xl font-bold flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                </svg>
-                Sparkling Housemaids NYC
-            </h1>
-            <div class="text-lg font-medium">Our Highly Requested Instant Quote Calculator</div>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="/_sdk/element_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="min-h-screen">
+  <header class="primary-bg py-6 px-4 shadow-md sticky-header">
+   <div class="container mx-auto flex justify-between items-center">
+    <h1 class="text-2xl md:text-3xl font-bold flex items-center">
+     <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mr-2" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+     </svg> Sparkling Housemaids NYC</h1>
+    <div class="text-lg font-medium">
+     Cleaning Quote Calculator
+    </div>
+   </div>
+  </header>
+  <main class="container mx-auto px-4 py-8 max-w-5xl">
+   <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+    <div class="lg:col-span-2 space-y-8"><!-- Step 1: Service Type -->
+     <div class="step-container pb-8">
+      <h2 class="text-xl font-bold mb-4">Step 1: Service Type</h2>
+      <div class="flex justify-start"><button id="residential" class="btn-service selected p-4 rounded-lg border border-gray-200 flex flex-col items-center justify-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mb-2" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+        </svg><span>Residential Cleaning</span> </button>
+      </div>
+      <div id="residential-options" class="mt-6">
+       <h3 class="text-lg font-medium mb-3">Property Type</h3>
+       <div class="flex space-x-4"><button id="apartment" class="btn-option selected px-4 py-2 rounded-lg border border-gray-200">Apartment/Condo</button> <button id="house" class="btn-option px-4 py-2 rounded-lg border border-gray-200">Single-Family Home</button>
+       </div>
+      </div>
+     </div><!-- Step 2: Service Details -->
+     <div class="step-container pb-8">
+      <h2 class="text-xl font-bold mb-4">Step 2: Service Details</h2><!-- Apartment Options -->
+      <div id="apartment-details" class="space-y-6">
+       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div><label class="block text-lg font-medium mb-2">Bedrooms: <span id="bedroom-value">1</span></label> <input type="range" id="bedrooms" min="0" max="4" step="1" value="1" class="w-full">
+         <div class="flex justify-between text-sm text-gray-500 mt-1"><span>Studio</span> <span>1</span> <span>2</span> <span>3</span> <span>4</span>
+         </div>
         </div>
-    </header>
-
-    <main class="container mx-auto px-4 py-8 max-w-5xl">
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <div class="lg:col-span-2 space-y-8">
-                <!-- Step 1: Service Type -->
-                <div class="step-container pb-8">
-                    <h2 class="text-xl font-bold mb-4">Step 1: Service Type</h2>
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                        <button id="residential" class="btn-service selected p-4 rounded-lg border border-gray-200 flex flex-col items-center justify-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-                            </svg>
-                            <span>Residential</span>
-                        </button>
-                    </div>
-
-                    <div id="residential-options" class="mt-6">
-                        <h3 class="text-lg font-medium mb-3">Property Type</h3>
-                        <div class="flex space-x-4">
-                            <button id="apartment" class="btn-option selected px-4 py-2 rounded-lg border border-gray-200">Apartment/Condo</button>
-                            <button id="house" class="btn-option px-4 py-2 rounded-lg border border-gray-200">Single-Family Home</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Step 2: Service Details -->
-                <div class="step-container pb-8">
-                    <h2 class="text-xl font-bold mb-4">Step 2: Service Details</h2>
-                    
-                    <!-- Apartment Options -->
-                    <div id="apartment-details" class="space-y-6">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <label class="block text-lg font-medium mb-2">Bedrooms: <span id="bedroom-value">1</span></label>
-                                <input type="range" id="bedrooms" min="0" max="4" step="1" value="1" class="w-full">
-                                <div class="flex justify-between text-sm text-gray-500 mt-1">
-                                    <span>Studio</span>
-                                    <span>1</span>
-                                    <span>2</span>
-                                    <span>3</span>
-                                    <span>4</span>
-                                </div>
-                            </div>
-                            
-                            <div>
-                                <label class="block text-lg font-medium mb-2">Bathrooms: <span id="bathroom-value">1</span></label>
-                                <input type="range" id="bathrooms" min="1" max="4.5" step="0.5" value="1" class="w-full">
-                                <div class="flex justify-between text-sm text-gray-500 mt-1">
-                                    <span>1</span>
-                                    <span>2</span>
-                                    <span>3</span>
-                                    <span>4</span>
-                                    <span>4.5</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- House Options -->
-                    <div id="house-details" class="space-y-6 hidden">
-                        <div>
-                            <label class="block text-lg font-medium mb-2">Square Footage: <span id="sqft-value">2000</span></label>
-                            <input type="range" id="square-footage" min="1750" max="6000" step="50" value="2000" class="w-full">
-                            <div class="flex justify-between text-sm text-gray-500 mt-1">
-                                <span>1750</span>
-                                <span>3000</span>
-                                <span>4500</span>
-                                <span>6000</span>
-                            </div>
-                        </div>
-                        
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <label class="block text-lg font-medium mb-2">Bedrooms: <span id="house-bedroom-value">3</span></label>
-                                <input type="range" id="house-bedrooms" min="1" max="6" step="1" value="3" class="w-full">
-                                <div class="flex justify-between text-sm text-gray-500 mt-1">
-                                    <span>1</span>
-                                    <span>2</span>
-                                    <span>3</span>
-                                    <span>4</span>
-                                    <span>5</span>
-                                    <span>6</span>
-                                </div>
-                            </div>
-                            
-                            <div>
-                                <label class="block text-lg font-medium mb-2">Bathrooms: <span id="house-bathroom-value">2</span></label>
-                                <input type="range" id="house-bathrooms" min="1" max="5.5" step="0.5" value="2" class="w-full">
-                                <div class="flex justify-between text-sm text-gray-500 mt-1">
-                                    <span>1</span>
-                                    <span>2</span>
-                                    <span>3</span>
-                                    <span>4</span>
-                                    <span>5</span>
-                                    <span>5.5</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Short-Term Rental -->
-                    <div id="short-term-details" class="space-y-4 hidden">
-                        <p class="text-gray-700">Describe the cleaning needs and frequency you need for your Airbnb, VRBO, or other short-term rental. We are happy to collaborate with you on a custom quote to make it possible to send help to clean and reset your space.</p>
-                        <textarea id="short-term-description" rows="4" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-300" placeholder="Describe your short-term rental cleaning needs..."></textarea>
-                    </div>
-                    
-                    <!-- Post-Construction -->
-                    <div id="post-construction-details" class="space-y-4 hidden">
-                        <p class="text-gray-700">For post-construction, renovation, or painting clean-up, please specify how many hours of service you need at 90 per hour.</p>
-                        <div class="flex items-center">
-                            <input type="number" id="post-construction-hours" min="1" value="4" class="w-24 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-300">
-                            <span class="ml-2">hours at 90/hour</span>
-                        </div>
-                        <p class="text-lg font-medium">Total: <span id="post-construction-total">360</span></p>
-                    </div>
-                    
-                    <!-- Commercial -->
-                    <div id="commercial-details" class="space-y-4 hidden">
-                        <p class="text-gray-700">For commercial cleanup, please specify how many hours of service you need at 80 per hour.</p>
-                        <div class="flex items-center">
-                            <input type="number" id="commercial-hours" min="1" value="4" class="w-24 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-300">
-                            <span class="ml-2">hours at 80/hour</span>
-                        </div>
-                        <p class="text-lg font-medium">Total: <span id="commercial-total">320</span></p>
-                    </div>
-
-                    <!-- Add-ons for Residential -->
-                    <div id="addons-section" class="mt-8">
-                        <h3 class="text-lg font-medium mb-3">Optional Add-Ons</h3>
-                        
-                        <div class="mb-4">
-                            <label class="inline-flex items-center">
-                                <input type="checkbox" id="move-out-clean" class="h-5 w-5 text-pink-500">
-                                <span class="ml-2 font-medium">Move-Out Clean?</span>
-                                <span class="ml-2 text-sm text-gray-500">(Automatically selects recommended add-ons)</span>
-                            </label>
-                        </div>
-                        
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <!-- Left Column -->
-                            <div class="space-y-4">
-                                <div class="addon-item p-3 border border-gray-200 rounded-lg flex items-center">
-                                    <input type="checkbox" id="addon-balcony" class="addon-checkbox h-5 w-5 text-pink-500">
-                                    <label for="addon-balcony" class="ml-2 flex-grow">Balcony Cleaning (60)</label>
-                                </div>
-                                <div class="addon-item p-3 border border-gray-200 rounded-lg flex items-center">
-                                    <input type="checkbox" id="addon-baseboards" class="addon-checkbox h-5 w-5 text-pink-500">
-                                    <label for="addon-baseboards" class="ml-2 flex-grow">Baseboards (60)</label>
-                                </div>
-                                <div class="addon-item p-3 border border-gray-200 rounded-lg flex items-center">
-                                    <input type="checkbox" id="addon-blinds" class="addon-checkbox h-5 w-5 text-pink-500">
-                                    <label for="addon-blinds" class="ml-2 flex-grow">Blinds (50 per blind)</label>
-                                    <div class="flex items-center">
-                                        <input type="number" id="addon-blinds-qty" min="0" value="0" class="w-12 p-1 border border-gray-300 rounded">
-                                    </div>
-                                </div>
-                                <div class="addon-item p-3 border border-gray-200 rounded-lg flex items-center">
-                                    <input type="checkbox" id="addon-empty-cabinets" class="addon-checkbox h-5 w-5 text-pink-500">
-                                    <label for="addon-empty-cabinets" class="ml-2 flex-grow">Cabinets + Drawers (Empty - 75)</label>
-                                </div>
-                                <div class="addon-item p-3 border border-gray-200 rounded-lg flex items-center">
-                                    <input type="checkbox" id="addon-occupied-cabinets" class="addon-checkbox h-5 w-5 text-pink-500">
-                                    <label for="addon-occupied-cabinets" class="ml-2 flex-grow">Cabinets + Drawers (Occupied - 125)</label>
-                                </div>
-                                <div class="addon-item p-3 border border-gray-200 rounded-lg flex items-center">
-                                    <input type="checkbox" id="addon-closets" class="addon-checkbox h-5 w-5 text-pink-500">
-                                    <label for="addon-closets" class="ml-2 flex-grow">Inside Closets (50 per closet)</label>
-                                    <div class="flex items-center">
-                                        <input type="number" id="addon-closets-qty" min="0" value="0" class="w-12 p-1 border border-gray-300 rounded">
-                                    </div>
-                                </div>
-                                <div class="addon-item p-3 border border-gray-200 rounded-lg flex items-center">
-                                    <input type="checkbox" id="addon-dishes" class="addon-checkbox h-5 w-5 text-pink-500">
-                                    <label for="addon-dishes" class="ml-2 flex-grow">Dishes (60)</label>
-                                </div>
-                            </div>
-                            
-                            <!-- Right Column -->
-                            <div class="space-y-4">
-                                <div class="addon-item p-3 border border-gray-200 rounded-lg flex items-center">
-                                    <input type="checkbox" id="addon-doors" class="addon-checkbox h-5 w-5 text-pink-500">
-                                    <label for="addon-doors" class="ml-2 flex-grow">Doors, Frames, Knobs (60)</label>
-                                </div>
-                                <div class="addon-item p-3 border border-gray-200 rounded-lg flex items-center">
-                                    <input type="checkbox" id="addon-empty-fridge" class="addon-checkbox h-5 w-5 text-pink-500">
-                                    <label for="addon-empty-fridge" class="ml-2 flex-grow">Fridge (Empty - 60)</label>
-                                </div>
-                                <div class="addon-item p-3 border border-gray-200 rounded-lg flex items-center">
-                                    <input type="checkbox" id="addon-occupied-fridge" class="addon-checkbox h-5 w-5 text-pink-500">
-                                    <label for="addon-occupied-fridge" class="ml-2 flex-grow">Fridge (Occupied - 100)</label>
-                                </div>
-                                <div class="addon-item p-3 border border-gray-200 rounded-lg flex items-center">
-                                    <input type="checkbox" id="addon-garage" class="addon-checkbox h-5 w-5 text-pink-500">
-                                    <label for="addon-garage" class="ml-2 flex-grow">Garage Cleaning (250)</label>
-                                </div>
-                                <div class="addon-item p-3 border border-gray-200 rounded-lg flex items-center">
-                                    <input type="checkbox" id="addon-heavy-duty" class="addon-checkbox h-5 w-5 text-pink-500">
-                                    <label for="addon-heavy-duty" class="ml-2 flex-grow">Heavy Duty (150)</label>
-                                </div>
-                                <div class="addon-item p-3 border border-gray-200 rounded-lg flex items-center">
-                                    <input type="checkbox" id="addon-oven" class="addon-checkbox h-5 w-5 text-pink-500">
-                                    <label for="addon-oven" class="ml-2 flex-grow">Inside Oven (60)</label>
-                                </div>
-                                <div class="addon-item p-3 border border-gray-200 rounded-lg flex items-center">
-                                    <input type="checkbox" id="addon-patio" class="addon-checkbox h-5 w-5 text-pink-500">
-                                    <label for="addon-patio" class="ml-2 flex-grow">Patio Cleaning (200)</label>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Additional add-ons that didn't fit in the columns -->
-                        <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div class="addon-item p-3 border border-gray-200 rounded-lg flex items-center">
-                                <input type="checkbox" id="addon-pet-hair" class="addon-checkbox h-5 w-5 text-pink-500">
-                                <label for="addon-pet-hair" class="ml-2 flex-grow">Pet Hair Removal (50)</label>
-                            </div>
-                            <div class="addon-item p-3 border border-gray-200 rounded-lg flex items-center">
-                                <input type="checkbox" id="addon-walls" class="addon-checkbox h-5 w-5 text-pink-500">
-                                <label for="addon-walls" class="ml-2 flex-grow">Walls (50 per wall)</label>
-                                <div class="flex items-center">
-                                    <input type="number" id="addon-walls-qty" min="0" value="0" class="w-12 p-1 border border-gray-300 rounded">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Cleaning Frequency -->
-                    <div id="frequency-section" class="mt-8">
-                        <h3 class="text-lg font-medium mb-3">Cleaning Frequency</h3>
-                        <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
-                            <button id="once-deep" class="frequency-btn selected px-3 py-2 rounded-lg border border-gray-200 text-sm" data-value="once-deep" data-modifier="75" data-house-modifier="100">Once (Deep Clean) +75</button>
-                            <button class="frequency-btn px-3 py-2 rounded-lg border border-gray-200 text-sm" data-value="once-light" data-modifier="0">Once (Light Clean)</button>
-                            <button class="frequency-btn px-3 py-2 rounded-lg border border-gray-200 text-sm" data-value="weekly" data-modifier="-0.15">Weekly (15% off)</button>
-                            <button class="frequency-btn px-3 py-2 rounded-lg border border-gray-200 text-sm" data-value="biweekly" data-modifier="-0.1">Every 2 weeks (10% off)</button>
-                            <button class="frequency-btn px-3 py-2 rounded-lg border border-gray-200 text-sm" data-value="triweekly" data-modifier="-0.07">Every 3 weeks (7% off)</button>
-                            <button class="frequency-btn px-3 py-2 rounded-lg border border-gray-200 text-sm" data-value="monthly" data-modifier="-0.05">Every 4 weeks (5% off)</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Step 3: Contact Information -->
-                <div class="step-container">
-                    <h2 class="text-xl font-bold mb-4">Step 3: Contact Information</h2>
-                    <form id="contact-form" class="space-y-4">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div>
-                                <label for="full-name" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
-                                <input type="text" id="full-name" name="full-name" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-300">
-                            </div>
-                            <div>
-                                <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
-                                <input type="tel" id="phone" name="phone" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-300">
-                            </div>
-                        </div>
-                        <div>
-                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                            <input type="email" id="email" name="email" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-300">
-                        </div>
-                        <div class="relative">
-                            <label for="address" class="block text-sm font-medium text-gray-700 mb-1">Service Address</label>
-                            <input type="text" id="address" name="address" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-300" placeholder="Indicate the unit #, if any">
-                            <div id="address-autocomplete" class="autocomplete-items hidden"></div>
-                        </div>
-                        <div>
-                            <label for="parking" class="block text-sm font-medium text-gray-700 mb-1">Parking Instructions</label>
-                            <input type="text" id="parking" name="parking" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-300" placeholder="Indicate if there is free parking, paid parking, or guest parking">
-                        </div>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div>
-                                <label for="service-date" class="block text-sm font-medium text-gray-700 mb-1">Preferred Service Date</label>
-                                <input type="date" id="service-date" name="service-date" required class="w-full">
-                            </div>
-                            <div>
-                                <label for="arrival-window" class="block text-sm font-medium text-gray-700 mb-1">Preferred Arrival Window</label>
-                                <select id="arrival-window" name="arrival-window" required class="w-full pl-4">
-                                    <option value="" selected>Select preferred arrival window</option>
-                                    <option value="8-9am">8-9am</option>
-                                    <option value="11-12pm">11-12pm</option>
-                                    <option value="2-3pm">2-3pm</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-1">Preferred Payment Method</label>
-                            <div class="flex space-x-4">
-                                <label class="inline-flex items-center">
-                                    <input type="radio" name="payment" value="Cash" checked class="h-4 w-4 text-pink-500">
-                                    <span class="ml-2">Cash</span>
-                                </label>
-                                <label class="inline-flex items-center">
-                                    <input type="radio" name="payment" value="Venmo" class="h-4 w-4 text-pink-500">
-                                    <span class="ml-2">Venmo</span>
-                                </label>
-                                <label class="inline-flex items-center">
-                                    <input type="radio" name="payment" value="Zelle" class="h-4 w-4 text-pink-500">
-                                    <span class="ml-2">Zelle</span>
-                                </label>
-                            </div>
-                        </div>
-                        <div>
-                            <label for="comments" class="block text-sm font-medium text-gray-700 mb-1">Additional Comments?</label>
-                            <textarea id="comments" name="comments" rows="3" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-300"></textarea>
-                        </div>
-                        <div class="pt-4">
-                            <button type="submit" class="primary-bg px-6 py-3 rounded-lg font-medium shadow-md hover:shadow-lg transition-all">
-                                Proceed to Email Booking Request
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-
-            <!-- Quote Summary -->
-            <div class="lg:col-span-1">
-                <div class="sticky top-24"> <!-- Adjusted top position to account for sticky header -->
-                    <div class="summary-header rounded-t-lg p-4">
-                        <h2 class="text-xl font-bold">Quote Summary</h2>
-                    </div>
-                    <div class="bg-white border border-gray-200 rounded-b-lg p-4 shadow-md">
-                        <div class="space-y-3">
-                            <div class="flex justify-between">
-                                <span>Service Type:</span>
-                                <span id="summary-service-type" class="font-medium">Residential - Apartment/Condo</span>
-                            </div>
-                            <div id="summary-details" class="flex justify-between">
-                                <span>Details:</span>
-                                <span class="font-medium">1 bedroom, 1 bathroom</span>
-                            </div>
-                            <div id="summary-frequency" class="flex justify-between">
-                                <span>Frequency:</span>
-                                <span class="font-medium">Once (Deep Clean)</span>
-                            </div>
-                            <div id="summary-addons-section" class="border-t border-gray-200 pt-3 mt-3">
-                                <h3 class="font-medium mb-2">Add-Ons:</h3>
-                                <ul id="summary-addons" class="text-sm space-y-1">
-                                    <li class="text-gray-500 italic">No add-ons selected</li>
-                                </ul>
-                            </div>
-                            <div class="border-t border-gray-200 pt-3 mt-3">
-                                <div class="flex justify-between text-lg">
-                                    <span class="font-medium">Base Price:</span>
-                                    <span id="summary-base-price" class="font-medium">170.00</span>
-                                </div>
-                                <div id="summary-addons-price" class="flex justify-between text-sm text-gray-700">
-                                    <span>Add-Ons:</span>
-                                    <span>0.00</span>
-                                </div>
-                                <div id="summary-subtotal" class="flex justify-between text-lg font-medium mt-2 pt-2 border-t border-gray-200">
-                                    <span>Subtotal:</span>
-                                    <span>170.00</span>
-                                </div>
-                                <div id="summary-frequency-adjustment" class="flex justify-between text-sm text-gray-700 mt-2">
-                                    <span>Deep Cleaning:</span>
-                                    <span>+75.00</span>
-                                </div>
-                                <div class="flex justify-between text-xl font-bold mt-3 pt-3 border-t border-gray-200">
-                                    <span>Total:</span>
-                                    <span id="summary-total">245.00</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div><label class="block text-lg font-medium mb-2">Bathrooms: <span id="bathroom-value">1</span></label> <input type="range" id="bathrooms" min="1" max="4.5" step="0.5" value="1" class="w-full">
+         <div class="flex justify-between text-sm text-gray-500 mt-1"><span>1</span> <span>2</span> <span>3</span> <span>4</span> <span>4.5</span>
+         </div>
         </div>
-        
-        <div class="text-center text-sm text-gray-500 mt-8">
-            <p>&copy; Sparkling Housemaids NYC. All rights reserved.</p>
-            <p>Note final pricing may vary based on home condition.</p>
+       </div>
+      </div><!-- House Options -->
+      <div id="house-details" class="space-y-6 hidden">
+       <div><label class="block text-lg font-medium mb-2">Square Footage: <span id="sqft-value">2000</span></label> <input type="range" id="square-footage" min="1750" max="6000" step="50" value="2000" class="w-full">
+        <div class="flex justify-between text-sm text-gray-500 mt-1"><span>1750</span> <span>3000</span> <span>4500</span> <span>6000</span>
         </div>
-    </main>
-
-    <script>
+       </div>
+       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div><label class="block text-lg font-medium mb-2">Bedrooms: <span id="house-bedroom-value">3</span></label> <input type="range" id="house-bedrooms" min="1" max="6" step="1" value="3" class="w-full">
+         <div class="flex justify-between text-sm text-gray-500 mt-1"><span>1</span> <span>2</span> <span>3</span> <span>4</span> <span>5</span> <span>6</span>
+         </div>
+        </div>
+        <div><label class="block text-lg font-medium mb-2">Bathrooms: <span id="house-bathroom-value">2</span></label> <input type="range" id="house-bathrooms" min="1" max="5.5" step="0.5" value="2" class="w-full">
+         <div class="flex justify-between text-sm text-gray-500 mt-1"><span>1</span> <span>2</span> <span>3</span> <span>4</span> <span>5</span> <span>5.5</span>
+         </div>
+        </div>
+       </div>
+      </div><!-- Add-ons for Residential -->
+      <div id="addons-section" class="mt-8">
+       <h3 class="text-lg font-medium mb-3">Optional Add-Ons</h3>
+       <div class="mb-4"><label class="inline-flex items-center"> <input type="checkbox" id="move-out-clean" class="h-5 w-5 text-pink-500"> <span class="ml-2 font-medium">Move-Out Clean?</span> <span class="ml-2 text-sm text-gray-500">(Automatically selects recommended add-ons)</span> </label>
+       </div>
+       <div class="grid grid-cols-1 md:grid-cols-2 gap-4"><!-- Left Column -->
+        <div class="space-y-4">
+         <div class="addon-item p-3 border border-gray-200 rounded-lg flex items-center"><input type="checkbox" id="addon-balcony" class="addon-checkbox h-5 w-5 text-pink-500"> <label for="addon-balcony" class="ml-2 flex-grow">Balcony Cleaning (60)</label>
+         </div>
+         <div class="addon-item p-3 border border-gray-200 rounded-lg flex items-center"><input type="checkbox" id="addon-baseboards" class="addon-checkbox h-5 w-5 text-pink-500"> <label for="addon-baseboards" class="ml-2 flex-grow">Baseboards (60)</label>
+         </div>
+         <div class="addon-item p-3 border border-gray-200 rounded-lg flex items-center"><input type="checkbox" id="addon-blinds" class="addon-checkbox h-5 w-5 text-pink-500"> <label for="addon-blinds" class="ml-2 flex-grow">Blinds (50 per blind)</label>
+          <div class="flex items-center"><input type="number" id="addon-blinds-qty" min="0" value="0" class="w-12 p-1 border border-gray-300 rounded">
+          </div>
+         </div>
+         <div class="addon-item p-3 border border-gray-200 rounded-lg flex items-center"><input type="checkbox" id="addon-empty-cabinets" class="addon-checkbox h-5 w-5 text-pink-500"> <label for="addon-empty-cabinets" class="ml-2 flex-grow">Cabinets + Drawers (Empty - 75)</label>
+         </div>
+         <div class="addon-item p-3 border border-gray-200 rounded-lg flex items-center"><input type="checkbox" id="addon-occupied-cabinets" class="addon-checkbox h-5 w-5 text-pink-500"> <label for="addon-occupied-cabinets" class="ml-2 flex-grow">Cabinets + Drawers (Occupied - 125)</label>
+         </div>
+         <div class="addon-item p-3 border border-gray-200 rounded-lg flex items-center"><input type="checkbox" id="addon-closets" class="addon-checkbox h-5 w-5 text-pink-500"> <label for="addon-closets" class="ml-2 flex-grow">Inside Closets (50 per closet)</label>
+          <div class="flex items-center"><input type="number" id="addon-closets-qty" min="0" value="0" class="w-12 p-1 border border-gray-300 rounded">
+          </div>
+         </div>
+         <div class="addon-item p-3 border border-gray-200 rounded-lg flex items-center"><input type="checkbox" id="addon-dishes" class="addon-checkbox h-5 w-5 text-pink-500"> <label for="addon-dishes" class="ml-2 flex-grow">Dishes (60)</label>
+         </div>
+        </div><!-- Right Column -->
+        <div class="space-y-4">
+         <div class="addon-item p-3 border border-gray-200 rounded-lg flex items-center"><input type="checkbox" id="addon-doors" class="addon-checkbox h-5 w-5 text-pink-500"> <label for="addon-doors" class="ml-2 flex-grow">Doors, Frames, Knobs (60)</label>
+         </div>
+         <div class="addon-item p-3 border border-gray-200 rounded-lg flex items-center"><input type="checkbox" id="addon-empty-fridge" class="addon-checkbox h-5 w-5 text-pink-500"> <label for="addon-empty-fridge" class="ml-2 flex-grow">Fridge (Empty - 60)</label>
+         </div>
+         <div class="addon-item p-3 border border-gray-200 rounded-lg flex items-center"><input type="checkbox" id="addon-occupied-fridge" class="addon-checkbox h-5 w-5 text-pink-500"> <label for="addon-occupied-fridge" class="ml-2 flex-grow">Fridge (Occupied - 100)</label>
+         </div>
+         <div class="addon-item p-3 border border-gray-200 rounded-lg flex items-center"><input type="checkbox" id="addon-garage" class="addon-checkbox h-5 w-5 text-pink-500"> <label for="addon-garage" class="ml-2 flex-grow">Garage Cleaning (250)</label>
+         </div>
+         <div class="addon-item p-3 border border-gray-200 rounded-lg flex items-center"><input type="checkbox" id="addon-heavy-duty" class="addon-checkbox h-5 w-5 text-pink-500"> <label for="addon-heavy-duty" class="ml-2 flex-grow">Heavy Duty (150)</label>
+         </div>
+         <div class="addon-item p-3 border border-gray-200 rounded-lg flex items-center"><input type="checkbox" id="addon-oven" class="addon-checkbox h-5 w-5 text-pink-500"> <label for="addon-oven" class="ml-2 flex-grow">Inside Oven (60)</label>
+         </div>
+         <div class="addon-item p-3 border border-gray-200 rounded-lg flex items-center"><input type="checkbox" id="addon-patio" class="addon-checkbox h-5 w-5 text-pink-500"> <label for="addon-patio" class="ml-2 flex-grow">Patio Cleaning (200)</label>
+         </div>
+        </div>
+       </div><!-- Additional add-ons that didn't fit in the columns -->
+       <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="addon-item p-3 border border-gray-200 rounded-lg flex items-center"><input type="checkbox" id="addon-pet-hair" class="addon-checkbox h-5 w-5 text-pink-500"> <label for="addon-pet-hair" class="ml-2 flex-grow">Pet Hair Removal (50)</label>
+        </div>
+        <div class="addon-item p-3 border border-gray-200 rounded-lg flex items-center"><input type="checkbox" id="addon-walls" class="addon-checkbox h-5 w-5 text-pink-500"> <label for="addon-walls" class="ml-2 flex-grow">Walls (50 per wall)</label>
+         <div class="flex items-center"><input type="number" id="addon-walls-qty" min="0" value="0" class="w-12 p-1 border border-gray-300 rounded">
+         </div>
+        </div>
+       </div>
+      </div><!-- Cleaning Frequency -->
+      <div id="frequency-section" class="mt-8">
+       <h3 class="text-lg font-medium mb-3">Cleaning Frequency</h3>
+       <div class="grid grid-cols-2 md:grid-cols-3 gap-3"><button id="once-deep" class="frequency-btn selected px-3 py-2 rounded-lg border border-gray-200 text-sm" data-value="once-deep" data-modifier="75" data-house-modifier="100">Once (Deep Clean) +75</button> <button class="frequency-btn px-3 py-2 rounded-lg border border-gray-200 text-sm" data-value="once-light" data-modifier="0">Once (Light Clean)</button> <button class="frequency-btn px-3 py-2 rounded-lg border border-gray-200 text-sm" data-value="weekly" data-modifier="-0.15">Weekly (15% off)</button> <button class="frequency-btn px-3 py-2 rounded-lg border border-gray-200 text-sm" data-value="biweekly" data-modifier="-0.1">Every 2 weeks (10% off)</button> <button class="frequency-btn px-3 py-2 rounded-lg border border-gray-200 text-sm" data-value="triweekly" data-modifier="-0.07">Every 3 weeks (7% off)</button> <button class="frequency-btn px-3 py-2 rounded-lg border border-gray-200 text-sm" data-value="monthly" data-modifier="-0.05">Every 4 weeks (5% off)</button>
+       </div>
+      </div>
+     </div><!-- Step 3: Contact Information -->
+     <div class="step-container">
+      <h2 class="text-xl font-bold mb-4">Step 3: Contact Information</h2>
+      <form id="contact-form" class="space-y-4">
+       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div><label for="full-name" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label> <input type="text" id="full-name" name="full-name" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-300">
+        </div>
+        <div><label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label> <input type="tel" id="phone" name="phone" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-300">
+        </div>
+       </div>
+       <div><label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label> <input type="email" id="email" name="email" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-300">
+       </div>
+       <div class="relative"><label for="address" class="block text-sm font-medium text-gray-700 mb-1">Service Address</label> <input type="text" id="address" name="address" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-300" placeholder="Indicate the unit #, if any">
+        <div id="address-autocomplete" class="autocomplete-items hidden"></div>
+       </div>
+       <div><label for="parking" class="block text-sm font-medium text-gray-700 mb-1">Parking Instructions</label> <input type="text" id="parking" name="parking" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-300" placeholder="Indicate if there is free parking, paid parking, or guest parking">
+       </div>
+       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div><label for="service-date" class="block text-sm font-medium text-gray-700 mb-1">Preferred Service Date</label> <input type="date" id="service-date" name="service-date" required class="w-full">
+        </div>
+        <div><label for="arrival-window" class="block text-sm font-medium text-gray-700 mb-1">Preferred Arrival Window</label> <select id="arrival-window" name="arrival-window" required class="w-full pl-4"> <option value="" selected>Select preferred arrival window</option> <option value="8-9am">8-9am</option> <option value="11-12pm">11-12pm</option> <option value="2-3pm">2-3pm</option> </select>
+        </div>
+       </div>
+       <div><label class="block text-sm font-medium text-gray-700 mb-1">Preferred Payment Method</label>
+        <div class="flex space-x-4"><label class="inline-flex items-center"> <input type="radio" name="payment" value="Cash" checked class="h-4 w-4 text-pink-500"> <span class="ml-2">Cash</span> </label> <label class="inline-flex items-center"> <input type="radio" name="payment" value="Venmo" class="h-4 w-4 text-pink-500"> <span class="ml-2">Venmo</span> </label> <label class="inline-flex items-center"> <input type="radio" name="payment" value="Zelle" class="h-4 w-4 text-pink-500"> <span class="ml-2">Zelle</span> </label>
+        </div>
+       </div>
+       <div><label for="comments" class="block text-sm font-medium text-gray-700 mb-1">Additional Comments?</label> <textarea id="comments" name="comments" rows="3" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-300"></textarea>
+       </div>
+       <div class="pt-4"><button type="submit" class="primary-bg px-6 py-3 rounded-lg font-medium shadow-md hover:shadow-lg transition-all"> Proceed to Email Booking Request </button>
+       </div>
+      </form>
+     </div>
+    </div><!-- Quote Summary -->
+    <div class="lg:col-span-1">
+     <div class="sticky top-24"><!-- Adjusted top position to account for sticky header -->
+      <div class="summary-header rounded-t-lg p-4">
+       <h2 class="text-xl font-bold">Quote Summary</h2>
+      </div>
+      <div class="bg-white border border-gray-200 rounded-b-lg p-4 shadow-md">
+       <div class="space-y-3">
+        <div class="flex justify-between"><span>Service Type:</span> <span id="summary-service-type" class="font-medium">Residential - Apartment/Condo</span>
+        </div>
+        <div id="summary-details" class="flex justify-between"><span>Details:</span> <span class="font-medium">1 bedroom, 1 bathroom</span>
+        </div>
+        <div id="summary-frequency" class="flex justify-between"><span>Frequency:</span> <span class="font-medium">Once (Deep Clean)</span>
+        </div>
+        <div id="summary-addons-section" class="border-t border-gray-200 pt-3 mt-3">
+         <h3 class="font-medium mb-2">Add-Ons:</h3>
+         <ul id="summary-addons" class="text-sm space-y-1">
+          <li class="text-gray-500 italic">No add-ons selected</li>
+         </ul>
+        </div>
+        <div class="border-t border-gray-200 pt-3 mt-3">
+         <div class="flex justify-between text-lg"><span class="font-medium">Base Price:</span> <span id="summary-base-price" class="font-medium">170.00</span>
+         </div>
+         <div id="summary-addons-price" class="flex justify-between text-sm text-gray-700"><span>Add-Ons:</span> <span>0.00</span>
+         </div>
+         <div id="summary-subtotal" class="flex justify-between text-lg font-medium mt-2 pt-2 border-t border-gray-200"><span>Subtotal:</span> <span>170.00</span>
+         </div>
+         <div id="summary-frequency-adjustment" class="flex justify-between text-sm text-gray-700 mt-2"><span>Deep Cleaning:</span> <span>+75.00</span>
+         </div>
+         <div class="flex justify-between text-xl font-bold mt-3 pt-3 border-t border-gray-200"><span>Total:</span> <span id="summary-total">245.00</span>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="text-center text-sm text-gray-500 mt-8">
+    <p>© Sparkling Housemaids NYC. All rights reserved.</p>
+    <p>This is an estimate. Final pricing may vary based on home condition.</p>
+   </div>
+  </main>
+  <script>
         // Apartment pricing data
         const apartmentPricing = {
             "0": {
@@ -693,16 +499,7 @@
 
         // Sample address data for autocomplete
         const sampleAddresses = [
-            "123 Main St, Seattle, WA 98101",
-            "456 Pine Ave, Seattle, WA 98101",
-            "789 Oak Blvd, Seattle, WA 98102",
-            "101 Elm St, Seattle, WA 98103",
-            "202 Cedar Rd, Seattle, WA 98104",
-            "303 Maple Dr, Seattle, WA 98105",
-            "404 Birch Ln, Seattle, WA 98106",
-            "505 Spruce Way, Seattle, WA 98107",
-            "606 Willow Ct, Seattle, WA 98108",
-            "707 Ash St, Seattle, WA 98109"
+            "123 Main St, NY, NY 07008",
         ];
 
         // Global state
@@ -743,9 +540,7 @@
         const frequencyButtons = document.querySelectorAll('.frequency-btn');
         const addonCheckboxes = document.querySelectorAll('.addon-checkbox');
         const quantityInputs = document.querySelectorAll('#addon-walls-qty, #addon-blinds-qty, #addon-closets-qty');
-        const postConstructionHours = document.getElementById('post-construction-hours');
-        const commercialHours = document.getElementById('commercial-hours');
-        const shortTermDescription = document.getElementById('short-term-description');
+
         const contactForm = document.getElementById('contact-form');
         const moveOutCleanCheckbox = document.getElementById('move-out-clean');
         const serviceDateInput = document.getElementById('service-date');
@@ -769,7 +564,7 @@
             }
         }
         
-        // Service type selection
+        // Service type selection (only residential now)
         serviceButtons.forEach(button => {
             button.addEventListener('click', () => {
                 // Remove selected class from all buttons
@@ -781,14 +576,11 @@
                 state.serviceType = button.id;
                 
                 // Show/hide appropriate sections
-                document.getElementById('residential-options').style.display = state.serviceType === 'residential' ? 'block' : 'none';
-                document.getElementById('apartment-details').style.display = state.serviceType === 'residential' && state.propertyType === 'apartment' ? 'block' : 'none';
-                document.getElementById('house-details').style.display = state.serviceType === 'residential' && state.propertyType === 'house' ? 'block' : 'none';
-                document.getElementById('short-term-details').style.display = state.serviceType === 'short-term' ? 'block' : 'none';
-                document.getElementById('post-construction-details').style.display = state.serviceType === 'post-construction' ? 'block' : 'none';
-                document.getElementById('commercial-details').style.display = state.serviceType === 'commercial' ? 'block' : 'none';
-                document.getElementById('addons-section').style.display = state.serviceType === 'residential' ? 'block' : 'none';
-                document.getElementById('frequency-section').style.display = state.serviceType === 'residential' ? 'block' : 'none';
+                document.getElementById('residential-options').style.display = 'block';
+                document.getElementById('apartment-details').style.display = state.propertyType === 'apartment' ? 'block' : 'none';
+                document.getElementById('house-details').style.display = state.propertyType === 'house' ? 'block' : 'none';
+                document.getElementById('addons-section').style.display = 'block';
+                document.getElementById('frequency-section').style.display = 'block';
                 
                 updateSummary();
             });
@@ -969,24 +761,7 @@
             });
         });
 
-        // Post-construction hours
-        postConstructionHours.addEventListener('input', () => {
-            state.postConstructionHours = parseInt(postConstructionHours.value) || 1;
-            document.getElementById('post-construction-total').textContent = (state.postConstructionHours * 90).toFixed(2);
-            updateSummary();
-        });
 
-        // Commercial hours
-        commercialHours.addEventListener('input', () => {
-            state.commercialHours = parseInt(commercialHours.value) || 1;
-            document.getElementById('commercial-total').textContent = (state.commercialHours * 80).toFixed(2);
-            updateSummary();
-        });
-
-        // Short-term rental description
-        shortTermDescription.addEventListener('input', () => {
-            state.shortTermDescription = shortTermDescription.value;
-        });
 
         // Service date
         serviceDateInput.addEventListener('change', () => {
@@ -1129,6 +904,20 @@
             // Create email body
             let emailBody = `mailto:sparklinghousemaidsnyc@gmail.com?subject=Cleaning Request - ${name}&body=`;
             
+            // Build add-ons list
+            let addonsDetail = '';
+            if (Object.keys(state.addons).length > 0) {
+                addonsDetail = 'Selected Add-Ons:\n';
+                for (const [id, addon] of Object.entries(state.addons)) {
+                    if (addon.quantity) {
+                        addonsDetail += `- ${addon.label} (${addon.quantity}) - $${(addon.price * addon.quantity).toFixed(2)}\n`;
+                    } else {
+                        addonsDetail += `- ${addon.label} - $${addon.price.toFixed(2)}\n`;
+                    }
+                }
+                addonsDetail += '\n';
+            }
+            
             emailBody += encodeURIComponent(`
 Name: ${name}
 Phone: ${phone}
@@ -1142,12 +931,13 @@ Payment Method: ${payment}
 Service Details:
 ${getServiceDetails()}
 
+${addonsDetail}
 Quote Summary:
-Base Price: ${basePrice.toFixed(2)}
-Add-Ons: ${addonsPrice.toFixed(2)}
-Subtotal: ${subtotal.toFixed(2)}
+Base Price: $${basePrice.toFixed(2)}
+Add-Ons: $${addonsPrice.toFixed(2)}
+Subtotal: $${subtotal.toFixed(2)}
 ${getFrequencyText()}
-Total: ${total.toFixed(2)}
+Total: $${total.toFixed(2)}
 
 Additional Comments:
 ${comments}
@@ -1159,28 +949,20 @@ ${comments}
 
         // Helper functions
         function calculateBasePrice() {
-            if (state.serviceType === 'residential') {
-                if (state.propertyType === 'apartment') {
-                    return apartmentPricing[state.bedrooms][state.bathrooms] || 170;
-                } else {
-                    // Find the appropriate price range for the square footage
-                    for (const range of housePricing) {
-                        if (state.squareFootage >= range.min && state.squareFootage < range.max) {
-                            return range.price;
-                        }
-                    }
-                    // If square footage is at the upper limit
-                    if (state.squareFootage >= 6000) {
-                        return 1040;
-                    }
-                    return 240; // Default
-                }
-            } else if (state.serviceType === 'post-construction') {
-                return state.postConstructionHours * 90;
-            } else if (state.serviceType === 'commercial') {
-                return state.commercialHours * 80;
+            if (state.propertyType === 'apartment') {
+                return apartmentPricing[state.bedrooms][state.bathrooms] || 170;
             } else {
-                return 0; // Short-term rental (custom quote)
+                // Find the appropriate price range for the square footage
+                for (const range of housePricing) {
+                    if (state.squareFootage >= range.min && state.squareFootage < range.max) {
+                        return range.price;
+                    }
+                }
+                // If square footage is at the upper limit
+                if (state.squareFootage >= 6000) {
+                    return 1040;
+                }
+                return 240; // Default
             }
         }
 
@@ -1199,8 +981,6 @@ ${comments}
         }
 
         function calculateFrequencyAdjustment(subtotal) {
-            if (state.serviceType !== 'residential') return 0;
-            
             if (state.frequencyModifier > 0) {
                 return state.frequencyModifier; // For deep cleaning, add flat fee
             } else {
@@ -1209,8 +989,6 @@ ${comments}
         }
 
         function getFrequencyText() {
-            if (state.serviceType !== 'residential') return '';
-            
             if (state.frequency === 'once-deep') {
                 const fee = state.propertyType === 'apartment' ? state.deepCleanApartmentFee : state.deepCleanHouseFee;
                 return `Deep Cleaning: +${fee.toFixed(2)}`;
@@ -1223,19 +1001,11 @@ ${comments}
         }
 
         function getServiceDetails() {
-            if (state.serviceType === 'residential') {
-                if (state.propertyType === 'apartment') {
-                    const bedroomText = state.bedrooms === 0 ? "Studio" : `${state.bedrooms} bedroom(s)`;
-                    return `Residential - Apartment/Condo\n${bedroomText}, ${state.bathrooms} bathroom(s)`;
-                } else {
-                    return `Residential - Single-Family Home\n${state.squareFootage} sq ft, ${state.houseBedrooms} bedroom(s), ${state.houseBathrooms} bathroom(s)`;
-                }
-            } else if (state.serviceType === 'short-term') {
-                return `Short-Term Rental\nDescription: ${state.shortTermDescription}`;
-            } else if (state.serviceType === 'post-construction') {
-                return `Post-Construction Cleaning\n${state.postConstructionHours} hours at 90/hour`;
+            if (state.propertyType === 'apartment') {
+                const bedroomText = state.bedrooms === 0 ? "Studio" : `${state.bedrooms} bedroom(s)`;
+                return `Residential - Apartment/Condo\n${bedroomText}, ${state.bathrooms} bathroom(s)`;
             } else {
-                return `Commercial Cleaning\n${state.commercialHours} hours at 80/hour`;
+                return `Residential - Single-Family Home\n${state.squareFootage} sq ft, ${state.houseBedrooms} bedroom(s), ${state.houseBathrooms} bathroom(s)`;
             }
         }
 
@@ -1363,5 +1133,5 @@ ${comments}
         updateDeepCleanButtonText();
         updateSummary();
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'980dbcff328711fd',t:'MTc1ODE2NTk0OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9c5b6cda5006e235',t:'MTc2OTcxNzk3NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
